@@ -1,4 +1,6 @@
-chrome.action.onClicked.addListener(async (tab) => {
+const api = typeof browser !== "undefined" ? browser : chrome;
+
+api.action.onClicked.addListener(async (tab) => {
   if (!tab.id) return;
-  chrome.tabs.sendMessage(tab.id, { type: "DOANLOLAI_TOGGLE_POPUP" });
+  api.tabs.sendMessage(tab.id, { type: "DOANLOLAI_TOGGLE_POPUP" });
 });
