@@ -1,0 +1,21 @@
+{
+  "manifest_version": 3,
+  "name": "doanlolai",
+  "version": "1.0.0",
+  "description": "Dịch văn bản, tóm tắt trang web và chatbot AI",
+  "permissions": ["storage", "activeTab", "scripting"],
+  "host_permissions": ["https://openrouter.ai/*", "https://*.openrouter.ai/*"],
+  "background": { "service_worker": "background.js" },
+  "options_ui": { "page": "options.html", "open_in_tab": true },
+  "action": { "default_title": "doanlolai" },
+  "content_scripts": [{
+    "matches": ["<all_urls>"],
+    "js": ["provider.js", "content.js"],
+    "css": ["styles.css"],
+    "run_at": "document_idle"
+  }],
+  "icons": { "16": "icons/16.png", "48": "icons/48.png", "128": "icons/128.png" },
+  "browser_specific_settings": {
+    "gecko": { "id": "doanlolai@doanlol", "strict_min_version": "109.0" }
+  }
+}
